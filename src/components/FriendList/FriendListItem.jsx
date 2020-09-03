@@ -1,14 +1,17 @@
 import React from 'react';
 import { formatAvatarLetters } from '../../share/utils';
 
-function FriendListItem({ active, name, lastMessage }) {
+function FriendListItem({ active, friend, selectConversation }) {
+  const { id, name, messages } = friend;
+  const lastMessage = messages.length > 0 ? messages[messages.length - 1] : 0;
   const { time, content } = lastMessage;
   const truncateMessage = (msg) => {
     return msg;
   }
 
   return (
-    <div className={`list-group-item list-group-item-action  rounded-0 ${active ? 'active text-white' : 'list-group-item-light'}`}>
+    <div onClick={() => {selectConversation(id)}}
+      className={`list-group-item list-group-item-action  rounded-0 ${active ? 'active text-white' : 'list-group-item-light'}`}>
       <div className="media">
         <p avatar={formatAvatarLetters(name)} />
         <div className="media-body ml-4">
@@ -17,7 +20,7 @@ function FriendListItem({ active, name, lastMessage }) {
               {time ? `${time.getDay()} ${time.toLocaleString('en-us', { month: 'short' })}` : ''}
             </small>
           </div>
-          <p className="font-italic text-muted mb-0 text-small">{truncateMessage(content)}</p>
+          <p className={`font-italic mb-0 text-small ${active ? '' : 'text-muted'}`}>{truncateMessage(content)}</p>
         </div>
       </div>
     </div>
