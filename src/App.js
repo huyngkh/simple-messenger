@@ -1,24 +1,15 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import FriendList from './components/FriendList';
+import MessageBox from './components/MessageBox';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div class="container py-5 px-4">
+      <div class="row rounded-lg overflow-hidden shadow">
+        <FriendList />
+        <MessageBox />
+      </div>
     </div>
   );
 }
