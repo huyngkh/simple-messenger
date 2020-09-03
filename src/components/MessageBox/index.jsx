@@ -4,7 +4,7 @@ import MessageSender from './MessageSender';
 
 function MessageBox() {
   return (
-    <div class="col-7 px-0">
+    <div className="col-7 px-0">
       <MessageContent />
       <MessageSender />
     </div>
