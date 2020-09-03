@@ -21,6 +21,7 @@ function MessageSender() {
       };
       messages.push(objMsg);
       setMsgData({ ...msgData, friends });
+      setMessage('');
     }
   };
 
